@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant UI as User Interface
+    participant Core as GrblCore
+    participant Com as ComWrapper
+    participant Device as GRBL Device
+    
+    UI->>Core: SendCommand(gcode)
+    Core->>Com: Write(command)
+    Com->>Device: Send G-code
+    Device-->>Com: Status Response
+    Com-->>Core: ProcessMessage
+    Core-->>UI: Update Status

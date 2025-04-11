@@ -1,0 +1,15 @@
+flowchart TB
+    UI["User Interface\n(Windows Forms)"]
+    Core["GrblCore\n(Machine Control)"]
+    Renderer["3D Rendering Engine\n(SharpGL)"]
+    FileHandler["File Format Handlers"]
+    ComLayer["Communication Layer"]
+    UpdateSystem["Auto-Update System"]
+    
+    UI --> Core
+    UI --> Renderer
+    UI --> FileHandler
+    Core --> ComLayer
+    Core --> Renderer
+    UpdateSystem --> UI
+    FileHandler --> Renderer

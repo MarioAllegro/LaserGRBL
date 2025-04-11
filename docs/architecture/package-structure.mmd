@@ -1,0 +1,27 @@
+flowchart TB
+    subgraph LaserGRBL
+        Core["Core"]
+        AutoUpdate["AutoUpdate"]
+        Obj3D["Obj3D"]
+        Tools["Tools"]
+        SvgLibrary["SvgLibrary"]
+    end
+    
+    subgraph SharpGL
+        SharpGL_Core["SharpGL"]
+        SceneGraph["SceneGraph"]
+        Serialization["Serialization"]
+        WinForms["WinForms"]
+    end
+    
+    subgraph ComWrapper
+        WebSocket["WebSocket"]
+    end
+    
+    LaserGRBL --> SharpGL
+    LaserGRBL --> ComWrapper
+    Core --> Obj3D
+    AutoUpdate --> Tools
+    SharpGL_Core --> SceneGraph
+    SceneGraph --> Serialization
+    SharpGL_Core --> WinForms

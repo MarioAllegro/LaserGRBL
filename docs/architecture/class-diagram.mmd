@@ -1,0 +1,48 @@
+classDiagram
+    class GrblCore {
+        +Connect()
+        +SendCommand()
+        +Disconnect()
+    }
+    
+    class Object3D {
+        +AddVertex()
+        +Invalidate()
+        +Dispose()
+    }
+    
+    class SerializationEngine {
+        -static instance
+        +LoadScene()
+        +SaveScene()
+        +GetFormatForPath()
+    }
+    
+    class IFileFormat {
+        <<interface>>
+        +LoadData()
+        +SaveData()
+        +FileTypes
+        +Filter
+    }
+    
+    class GitHub {
+        +CheckVersion()
+        +NewVersion event
+        -AsyncCheckVersion()
+        -CheckVersionFromSite()
+    }
+    
+    class OpenGL {
+        +BeginScene()
+        +EndScene()
+        +Viewport()
+        +DrawArrays()
+    }
+    
+    GrblCore --> Object3D
+    SerializationEngine --> IFileFormat
+    Object3D --> OpenGL
+    IFileFormat <|-- ObjFileFormat
+    IFileFormat <|-- SharpGLXmlFormat
+    IFileFormat <|-- CaligariFileFormat

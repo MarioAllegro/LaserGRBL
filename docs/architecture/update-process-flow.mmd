@@ -1,0 +1,7 @@
+flowchart TD
+    Start([Start]) --> CheckUpdate[Check for Updates]
+    CheckUpdate --> HasUpdate{New Version?}
+    HasUpdate -- Yes --> DownloadUpdate[Download Update]
+    HasUpdate -- No --> End([End])
+    DownloadUpdate --> InstallUpdate[Install Update]
+    InstallUpdate --> End
